@@ -1,0 +1,28 @@
+@startuml video_system
+
+[Camera] --> camVideoSplitter : mini HDMI --> HDMI
+camVideoSplitter --> [Video Capture Card] : extended HDMI
+
+
+
+[Video Capture Card] --> [Laptop] : USB-C
+[Laptop] --> videoSplitter : extended HDMI (Sending slides)
+note right of [Video Capture Card]
+  Needed for streaming the service
+end note
+
+videoSplitter --> [Hall Main TV]
+videoSplitter --> [Hall Side TV]
+
+
+
+package "White Door Room" {
+    videoSplitter --> [White Door Room Projector] : Long VGA cable
+    camVideoSplitter --> [White Door Room TV] : extended HDMI (Camera View)
+}
+
+package "Cry Room" {
+    camVideoSplitter --> [Cry Room TV] : extended HDMI (Camera View)
+    videoSplitter --> [Cry Room Slides Screen]
+}
+@enduml
