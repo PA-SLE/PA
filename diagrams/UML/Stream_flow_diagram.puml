@@ -1,0 +1,155 @@
+@startuml "how to stream"
+
+:Arrive;
+
+:Turn on laptop;
+:Turn on mixer
+The digital mixer will already have the previous settings;
+:Turn on everything at that powerpoint wall;
+:Turn on speakers;
+
+partition "Check laptop sound" {
+    :Play anything with sound on laptop
+    -  ensure that sound comes through hall speakers;
+
+    if (Sound works?) then (Sound comes through speakers)
+
+    elseif (Not coming through speaker) then (Sound through laptop speaker)
+        :Check if laptop is sending sound to mixer;
+    else (No sound)
+        :Check mixer settings
+        - master fader
+        - PC Input fader;
+
+        if (Fixed?) then (still doesn't work)
+            :Try unplug mixer and plug it back in;
+        else (fixed)
+        endif
+    endif
+}
+
+partition "Check musician sound" {
+    :Chances are it'll work
+    - digital mixer just loads the previous settings
+      (probably settings the musicians used to practise);
+    :Check the mics and stuff
+    - Wireless mic and receiver
+    - Batteries etc.;
+    :Fine tune the equalisation while musicians practise a bit;
+}
+
+partition "Worship Extreme stuff" {
+    :Open up worship extreme;
+    :Check slides are there
+    - if not contact someone else (Li Wei, ...) to get the slides
+        - they can put the slides in from any computer
+            - you'll be temporarily logged out of Worship Extreme;
+}
+
+partition "Open OBS" {
+    :Check that the audio input bar is moving to sound;
+    :Run through the scenes and check that they appear as expected;
+    if (Scenes work?) then (All scenes look good)
+
+    elseif (Scene 1/Main Camera is not right) then (doesn't work)
+        :Check if camera is on
+        - Check connections between camera and laptop;
+        :Will have to restart OBS if any hardware changes are made;
+    elseif (Scene 2/overlay is not right) then (doesn't work)
+        :Overlay hasn't gone wrong yet before haha;
+    elseif (Scene 3/side Camera is not right) then (doesn't look right)
+        :Not essential for service but really nice to have
+        Maybe move on and fix if there's time later;
+    elseif (Scene 4/overlay is not right) then (doesn't work)
+        :Overlay hasn't gone wrong yet I think;
+    else (Scene 5/ Just slides)
+        :hmmm not sure;
+    endif
+
+    :Run through the scenes with TouchPortal or keyboard shortcuts
+     - Scene number corresponds to Ctrl+Scene_number
+     - TouchPortal can be run on tablet or phone;
+    if (Scene changes work?) then (Scenes are changed easily)
+
+    elseif (Not working) then (Using TouchPortal)
+        :Check TouchPortal is running;
+        :Stil not working? Check if device and laptop are on the same network.
+        If not change device to be on the same network;
+        :Still not working? Restart TouchPortal and OBS;
+        :Still not working? ummm restart laptop?
+        - Go through "Check laptop sound" section again after restart too;
+    endif
+}
+
+partition "Youtube stuff" {
+    :Open up YouTube Studio;
+    :There should be a scheduled stream;
+    :View preview and details of the scheduled stream;
+    :Click `Stream` in OBS;
+    :Ensure stream preview roughly matches OBS preview
+    - Youtube preview will be about a minute behind;
+    :Ensure the `Record` button is highlighted
+    Indicating that it is recording;
+}
+
+partition "Service Prep ~08:40" {
+    :Ensure Worship Extreme is open and you can log in;
+    :Give the Worship Extreme content a skim;
+    :Start up the "Preservice" looping video,
+    use Slides Scene;
+    :Start up the preservice instrumentals
+    - make sure It's coming through OBS;
+    :Mute all mics and instruments;
+    :Around 08:50, start the YouTube stream from the YouTube Studio;
+}
+
+partition "During Service" {
+    :Change to Main Camera Scene, fade down preservice music, unmute Chairperson;
+    partition "Singing" {
+        :Remember to unmute the musicians before they start :);
+        fork
+            :Change slides
+            - Aim to change when the last visible syllable is sung
+            - Look forward to see if next lines are right, if you're familiar
+            - Fairly fast as only a few words per slide
+                - Ideally, a person would do just this;
+        fork again
+            :Ensure right Scene is selected
+            - Chairperson speaking: Main Camera/Scene 1
+            - Singing: Side camera with overlay/Scene 3
+            - Announcement: Briefly show slide/Scene 5 when it seems appropriate;
+        fork again
+            :Ensure balance is suitable
+            - look out for feedback from team about EQ or vol
+            - rule of thumb, for music: volume in OBS should be firmly in the red zone;
+        end fork
+    }
+
+    :Play Bible reading recording,
+    use Slides Scene,
+    ensure volume is good
+    - volume in OBS should be just touching red;
+
+    :Unmute preacher,
+    mute everything else;
+
+    :Switch Scene to Main Camera, Slides, or Side Camera as see fit
+    - When preacher changes slide, switch to Slides
+        - change back to Main Camera when preacher blanks the screen
+            - or when slide is no longer relevant
+                - but leave up too long haha;
+
+    :When preacher has finished, select any title slide and use Slides scene;
+
+    :Repeat "Singing" section for SOR;
+
+    :Back to chairperson on Main Camera;
+
+    :Show Discussion Questions on Slides Scene,
+    mute everyone,
+    fade up instrumentals;
+
+}
+
+
+@enduml
