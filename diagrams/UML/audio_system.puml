@@ -1,0 +1,61 @@
+@startuml audio_system
+skinparam componentStyle rectangle
+
+interface "DI Box" as di
+interface "3.5 mm plug" as phoneJack
+
+note right of snake 
+    Snake head at the corner of hall
+end note
+
+[Unbalanced Input] --> di : 1/4" Cable
+note right of [Unbalanced Input]
+    e.g. Guitar, Keyboard
+end note
+
+di --> snake : XLR Cable
+
+
+[Balanced Input] --> snake : XLR Cable
+note right of [Balanced Input]
+    e.g. Mic
+end note
+
+snake --> [Mixer]
+
+phoneJack --> [Mixer] : RCA 
+note right of phoneJack
+    To plug in anything
+    e.g. A phone to play music
+    At PA Desk
+end note
+
+[Laptop] --> [Mixer] : USB
+
+[Mixer Controller] <..> Router
+Router <..> [Mixer] : Ethernet
+note left of [Mixer Controller]
+    Device that controls the mixer
+    Laptop, phone, or tablet
+    Get X-Air Edit app or program
+    Must join particular wireless network
+end note
+
+[Wireless Mic] . [Wireless Receiver]
+[Wireless Receiver] --> [Mixer] : XLR
+note right of [Wireless Receiver]
+    Needs to be turned on
+end note
+
+[Mixer] --> [Hall Speaker R]
+[Mixer] --> [Hall Speaker L]
+[Mixer] --> [Cry Room Speaker]
+[Mixer] --> [White Door Speaker]
+
+[Mixer] --> [Musician Monitors]
+
+note right of [Mixer]
+    16 Inputs, 6 AUX outputs
+end note
+
+@enduml
