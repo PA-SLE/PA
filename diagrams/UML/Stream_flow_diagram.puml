@@ -2,14 +2,33 @@
 
 :Arrive;
 
-:Turn on laptop;
+:Turn on all power points next to PA desk;
+:Turn on laptop and login;
 :Turn on mixer
 The digital mixer will already have the previous settings;
-:Turn on everything at that powerpoint wall;
-:Turn on speakers;
+:Turn on all other powerpoints
+This will turn on the Speakers and TV;
+
+partition "Check Screens" {
+    :Turn on front TV, Side TV, and back TV;
+
+    if (all TVs work?) then (all work)
+
+    elseif (doesn't work) then (all TVs don't work)
+        :- Check the splitter is turned on
+        - Check the connection between splittler and laptop
+        - Check that the laptop is set to extend mode for it's multi display settings
+        - Check that the screen isn't meant to be black;
+    
+    else (Only one doesn't work)
+        :- Check the connection between splitter and TV
+        - Check TV is on;
+
+    endif
+}
 
 partition "Check laptop sound" {
-    :Play anything with sound on laptop
+    :Play anything with sound on laptop e.g. pre-service playlist
     -  ensure that sound comes through hall speakers;
 
     if (Sound works?) then (Sound comes through speakers)
@@ -29,7 +48,7 @@ partition "Check laptop sound" {
 }
 
 partition "Check musician sound" {
-    :Chances are it'll work
+    :Chances are it'll work - yet to come across any issues yet
     - digital mixer just loads the previous settings
       (probably settings the musicians used to practise);
     :Check the mics and stuff
@@ -62,7 +81,7 @@ partition "Open OBS" {
         Maybe move on and fix if there's time later;
     elseif (Scene 4/overlay is not right) then (doesn't work)
         :Overlay hasn't gone wrong yet I think;
-    else (Scene 5/ Just slides)
+    else (Scene 5/ Just slides is not right)
         :hmmm not sure;
     endif
 
@@ -148,6 +167,17 @@ partition "During Service" {
     :Show Discussion Questions on Slides Scene,
     mute everyone,
     fade up instrumentals;
+
+    :Show post service slide ~10:40AM;
+    :Mute all channels;
+
+    partition "Pack up" {
+        :Turn off camera
+        so that the lens protector comes on;
+        :Turn off TVs;
+        :Turn off mixer;
+        :Everything else can be turned off everything else at the powerpoint;
+    }
 
 }
 
