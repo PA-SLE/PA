@@ -3,7 +3,10 @@
 :Arrive;
 
 :Turn on all power points next to PA desk;
-:Turn on laptop and login;
+:Put some rechargeble batteries on charge if needed
+wireless mic needs x2 AA;
+:Turn on laptop and login
+PIN is same as key safe;
 :Turn on mixer
 The digital mixer will already have the previous settings;
 :Turn on all other powerpoints
@@ -21,7 +24,7 @@ partition "Check Screens" {
         - Check that the screen isn't meant to be black;
     
     else (Only one doesn't work)
-        :- Check the connection between splitter and TV
+        :- Check the connection between splitter and that TV
         - Check TV is on;
 
     endif
@@ -41,6 +44,9 @@ partition "Check laptop sound" {
         - PC Input fader;
 
         if (Fixed?) then (still doesn't work)
+            :Check X-Air edit is actually connected to mixer,
+            and actually changing it's settings
+                look in the `SETUP` window;
             :Try unplug mixer and plug it back in;
         else (fixed)
         endif
@@ -97,23 +103,31 @@ partition "Open OBS" {
         :Still not working? Restart TouchPortal and OBS;
         :Still not working? ummm restart laptop?
         - Go through "Check laptop sound" section again after restart too;
+
+    else (hotkeys not working)
+        :Check OBS Settings
+        - Settings > HOTKEYS;
     endif
 }
 
-partition "Youtube stuff" {
+partition "Youtube stuff ~08:30" {
+    :For full details see 
+    Google Drive > PA Stuff > Procedures and Guidelines > Streaming from church camera;
     :Open up YouTube Studio;
     :There should be a scheduled stream;
     :View preview and details of the scheduled stream;
     :Click `Stream` in OBS;
     :Ensure stream preview roughly matches OBS preview
     - Youtube preview will be about a minute behind;
-    :Ensure the `Record` button is highlighted
+    :Ensure the `Record` button in OBS is highlighted
     Indicating that it is recording;
 }
 
 partition "Service Prep ~08:40" {
     :Ensure Worship Extreme is open and you can log in;
     :Give the Worship Extreme content a skim;
+    :Check that the lyrics is visible in OBS Preview
+    e.g. white text is contrasted against dark background;
     :Start up the "Preservice" looping video,
     use Slides Scene;
     :Start up the preservice instrumentals
@@ -122,7 +136,7 @@ partition "Service Prep ~08:40" {
     :Around 08:50, start the YouTube stream from the YouTube Studio;
 }
 
-partition "During Service" {
+partition "During Service 09:00" {
     :Change to Main Camera Scene, fade down preservice music, unmute Chairperson;
     partition "Singing" {
         :Remember to unmute the musicians before they start :);
