@@ -4,4 +4,4 @@ A repository for supporting documentation, diagrams for PA
 
 ## Quick Links
 
-[setup flowchart](docs\setup.md)
+[setup flowchart](docs/setup.md)
