@@ -21,4 +21,4 @@ These are some of the things that we could be installing through Choco:
 - choco install googledrive
   - google drive
 
-  https://chocolatey.org/packages?sortOrder=package-download-count&page=18&prerelease=False&moderatorQueue=False&moderationStatus=all-statuses
+  <https://chocolatey.org/packages?sortOrder=package-download-count&page=18&prerelease=False&moderatorQueue=False&moderationStatus=all-statuses>
