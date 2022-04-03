@@ -62,8 +62,8 @@ if __name__ == '__main__':
             'text': 'Ring bell for longer at 10:25 as well'
         },
         'Start streaming for second service': {
-            'hour': 11,
-            'minute': 10,
+            'hour': 10,
+            'minute': 40,
             'text': ''
         }
     }
