@@ -1,5 +1,6 @@
 import ctypes
 from datetime import datetime
+import json
 import time
 
 
@@ -18,6 +19,21 @@ def message(title, text, style):
     count starts at 1 and not zero
     """
     return ctypes.windll.user32.MessageBoxW(0, text, title, style)
+
+
+def get_list_of_times():
+    """
+    Reads the JSON file that contains a list of timed reminders
+    Expects a JSON file called `list_of_times.json` in the same directory
+    """
+    try:
+        with open('list_of_times.json') as f:
+            # print('This is what I am getting', f.read())
+            times = json.load(f)
+    except Exception as e:
+        print('Could not read list of times:', e)
+
+    return times
 
 
 def check_time(item, config, current_time):
@@ -45,28 +61,8 @@ def check_time(item, config, current_time):
 
 if __name__ == '__main__':
     TITLE = 'Sunday Service Setup Reminders'
-    times = {
-        'Start streaming for first service': {
-            'hour': 8,
-            'minute': 40,
-            'text': ''
-        },
-        'Setup overflow room': {
-            'hour': 10,
-            'minute': 18,
-            'text': 'Sunday school should be all packed up at 10:20'
-        },
-        'Ring bell': {
-            'hour': 10,
-            'minute': 20,
-            'text': 'Ring bell for longer at 10:25 as well'
-        },
-        'Start streaming for second service': {
-            'hour': 11,
-            'minute': 10,
-            'text': ''
-        }
-    }
+    times = get_list_of_times()
+
     response = message(
         title=TITLE,
         text='''Make sure there are some batteries in the charger or charged
@@ -96,4 +92,3 @@ Click cancel if not Sunday''',
                 reminder_issued = check_time(item, config, date_time)
                 time.sleep(30)
             print('Moving on to next item')
-
