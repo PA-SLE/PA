@@ -61,6 +61,7 @@ def check_time(item, config, current_time):
 
 if __name__ == '__main__':
     TITLE = 'Sunday Service Setup Reminders'
+    
     times = get_list_of_times()
 
     response = message(
